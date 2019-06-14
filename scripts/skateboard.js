@@ -1,5 +1,3 @@
-// http://www.omdbapi.com/?apikey=b12508f8&t=superman
-
 function createPromise(method, url, body) {
     return new Promise(function (resolve, reject) {
 
@@ -23,19 +21,11 @@ function createPromise(method, url, body) {
 
 }
 
-function allMovies() {
+
+function getMovies() {
 
     let title = document.getElementById('search').value;
 
-    createPromise("GET", "http://www.omdbapi.com/?apikey=b12508f8&s=" + title)
-        .then(resolve => {
-            const x = JSON.parse(resolve);
-
-            console.log(x)
-
-            document.getElementById("data-table").innerText = x;
-        });
-
-
+    createPromise("GET", "http://www.omdbapi.com/?apikey=b12508f8&t=" + title).then(resolve => { console.log(resolve) });
 
 }
